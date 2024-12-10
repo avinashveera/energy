@@ -36,7 +36,7 @@ const Footer = () => {
                 <IconButton color="inherit" onClick={() => window.location.href = 'tel:+1234567890'}>
                   <Phone />
                 </IconButton>
-                <Typography variant="body2" sx={{ ml: 1 }}>+123 456 7890</Typography>
+                <Typography variant="body2" sx={{ ml: 1 }}>9470679846</Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
                 <IconButton color="inherit" onClick={() => window.location.href = 'mailto:info@maageeta.com'}>
@@ -101,7 +101,7 @@ const Footer = () => {
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Company Details</Typography>
           <Box sx={{ marginTop: 2 }}>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              123 Your Address, City, Country
+            Saristabad purvi tola bypass road 70feet Patna 800002
             </Typography>
             <Box sx={{ height: 200, width: '100%', position: 'relative' }}>
               <iframe
