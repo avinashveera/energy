@@ -47,9 +47,9 @@ const TopAppBar = () => {
 
   // Menu items
   const menuItems = [
-    { text: "Home", path: "/home" },
-    { text: "About", path: "/about" },
-    { text: "Contact", path: "/contact" },
+    { text: "Home", path: "/" },
+    { text: "About", path: "/" },
+    { text: "Contact", path: "/" },
   ];
 
   // Services dropdown items

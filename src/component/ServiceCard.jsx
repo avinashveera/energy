@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 
-const ServiceCard = ({ icon, title, description }) => {
+const ServiceCard = ({ image, title, description }) => {
   return (
     <Card
       elevation={2}
@@ -15,12 +15,21 @@ const ServiceCard = ({ icon, title, description }) => {
     >
       <Box
         sx={{
-          fontSize: "40px",
-          color: "#4CAF50",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           marginBottom: "10px",
         }}
       >
-        {icon}
+        <img
+          src={image}
+          alt={title}
+          style={{
+            width: "80px",
+            height: "80px",
+            borderRadius: "50%", // Optional, for circular images
+          }}
+        />
       </Box>
       <CardContent>
         <Typography variant="h6" component="div" gutterBottom>
