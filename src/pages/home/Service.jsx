@@ -8,7 +8,7 @@ import bike from '../../img/bike.jpg'
 import storage from '../../img/storage.jpg'
 import international from '../../img/international.jpg'
 
-//last add
+
 const ServicesPage = () => {
   const services = [
     {
