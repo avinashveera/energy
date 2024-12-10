@@ -11,43 +11,16 @@ import {
     InputLabel,
 } from '@mui/material';
 import theme from '../../theme'; // Import custom theme
-import lodimg from '../../img/loading.jpeg'; // Make sure the image path is correct
 
 const MovingQuoteForm = () => {
     return (
-        <Grid container sx={{ height: '100%', }}>
-            {/* Left Column - Image */}
-            <Grid
-                item
-                xs={12}
-                md={6}
-                sx={{
-                   // Different height for large and small screens
-                    display: 'flex', // Flex to center the image in the grid item
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: { xs: '300px', md: '600px' },
-                    mt:2,
-                   
-                    
-                    position: 'relative', // Needed for absolute positioning of wave background
-                }}
-            >
-                <img
-                    src={lodimg} // Replace with actual image path
-                    alt="Loading"
-                    style={{
-                        
-                        width: '100%',
-                        height: '100%',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      
-                    }}
-                />
-                
-            </Grid>
+        <Grid container sx={{ 
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            }}>
+   
 
             {/* Right Column - Form */}
             <Grid

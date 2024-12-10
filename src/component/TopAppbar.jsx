@@ -2,20 +2,24 @@
 import React from 'react';
 import { AppBar, Toolbar,  Typography, Box, Button, useMediaQuery } from '@mui/material';
 import PhoneIcon from '@mui/icons-material/Phone';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 import theme from '../theme'; // Import your custom theme
 
 const TopAppBar = () => {
   const isMobile = useMediaQuery('(max-width:600px)'); // Check if the screen is mobile size
 
+
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
+
   // Handle call action
   const handleCall = () => {
-    window.location.href = 'tel:+1234567890'; // Replace with actual phone number
+    window.location.href = 'tel:+919123129847'; // Replace with actual phone number
   };
 
   // Handle cost calculator button action
-  const handleCostCalculator = () => {
-    alert('Cost Calculator clicked!'); // Replace with the desired action
+  const handlegetQuote = () => {
+    navigate('/getquote'); // Redirect to '/getOrder'
   };
 
   return (
@@ -76,7 +80,7 @@ const TopAppBar = () => {
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Button
             variant="contained"
-            onClick={handleCostCalculator}
+            onClick={handlegetQuote}
             sx={{
               backgroundColor: theme.colors.secondary,
               color: theme.colors.background,
@@ -90,10 +94,10 @@ const TopAppBar = () => {
                 boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.3)',
               },
               padding: '6px 16px',
-              fontSize: '12px', // Reduce button size
+              fontSize: '10px', // Reduce button size
             }}
           >
-            Cost Calculator
+            Get Moving Quote
           </Button>
         </Box>
       </Toolbar>

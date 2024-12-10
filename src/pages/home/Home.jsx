@@ -4,15 +4,17 @@ import Strepper from '../../component/home/Strepper'
 import City from '../../component/City'
 import Service from  './Service'
 import About from '../../component/home/About'
+import Slider from '../../component/home/Slider'
 
 const Home = () => {
   return (
     <>
     
-    <Hero />
+     <Slider />
     <About/>
     <Service/>
     <Strepper/>
+    <Hero />
     <City />
 
     </>
