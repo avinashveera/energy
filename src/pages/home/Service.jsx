@@ -12,37 +12,37 @@ import international from '../../img/international.jpg'
 const ServicesPage = () => {
   const services = [
     {
-      imgUrl: {homimg},
+      imgUrl: homimg,
       title: "Home Relocation",
       description:
         "Plan a hassle-free and safe household move anywhere in the country with our packers and movers.",
     },
     {
-      imgUrl: {office},
+      imgUrl: office,
       title: "Office Relocation",
       description:
         "Office packers and movers companies will safely pack and move your expensive office items within time.",
     },
     {
-      imgUrl:{car},
+      imgUrl:car,
       title: "Car Transport",
       description:
         "Safely relocate your four-wheeler in specialized car carriers of our car transportation companies.",
     },
     {
-      imgUrl: {bike},
+      imgUrl: bike,
       title: "Bike Transport",
       description:
         "Let our reliable bike shifting companies handle your two-wheeler relocation in a hassle-free manner.",
     },
     {
-      imgUrl: {storage},
+      imgUrl: storage,
       title: "Storage Services",
       description:
         "Our top movers and packers offer safe storage services to store your goods with insurance cover.",
     },
     {
-      imgUrl: {international},
+      imgUrl: international,
       title: "International Relocation",
       description:
         "International moving companies will relocate your goods or vehicles safely fulfilling all cargo formalities.",
