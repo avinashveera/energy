@@ -11,7 +11,7 @@ import {
     InputLabel,
 } from '@mui/material';
 import theme from '../../theme'; // Import custom theme
-import lodimg from '../../img/loading.jpg'; // Make sure the image path is correct
+import lodimg from '../../img/loading.jpeg'; // Make sure the image path is correct
 
 const MovingQuoteForm = () => {
     return (

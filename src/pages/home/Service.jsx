@@ -1,12 +1,12 @@
 import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
 import ServiceCard from "../../component/ServiceCard";
-import homimg from '../../img/home.jpg'
-import office from '../../img/office.jpg'
-import car from '../../img/car.jpg'
-import bike from '../../img/bike.jpg'
-import storage from '../../img/storage.jpg'
-import international from '../../img/international.jpg'
+import homimg from '../../img/home.jpeg'
+import office from '../../img/office.jpeg'
+import car from '../../img/car.jpeg'
+import bike from '../../img/bike.jpeg'
+import storage from '../../img/storage.jpeg'
+import international from '../../img/international.jpeg'
 
 
 const ServicesPage = () => {

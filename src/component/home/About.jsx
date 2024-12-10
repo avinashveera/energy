@@ -1,12 +1,12 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
-import about from '../../img/about.jpg'
+import about from '../../img/about.jpeg'
 
 const HeroSection = () => {
   return (
     <Box
       sx={{
-        padding: "40px 20px",
+        padding: "20px",
         backgroundColor: "#f5f5f5",
         display: "flex",
         alignItems: "center",

@@ -25,9 +25,9 @@ const ServiceCard = ({ image, title, description }) => {
           src={image}
           alt={title}
           style={{
-            width: "80px",
-            height: "80px",
-            borderRadius: "50%", // Optional, for circular images
+            width: "250px",
+            height: "120px",
+            borderRadius: "5%", // Optional, for circular images
           }}
         />
       </Box>

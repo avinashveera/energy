@@ -33,7 +33,7 @@ const Footer = () => {
             <Box sx={{ marginTop: 2 }}>
               <Typography variant="body2">Contact Us</Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                <IconButton color="inherit" onClick={() => window.location.href = 'tel:+1234567890'}>
+                <IconButton color="inherit" onClick={() => window.location.href = 'tel:+919470679846'}>
                   <Phone />
                 </IconButton>
                 <Typography variant="body2" sx={{ ml: 1 }}>9470679846</Typography>
