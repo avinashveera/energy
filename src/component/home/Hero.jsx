@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Box,
     Grid,
@@ -13,16 +13,54 @@ import {
 import theme from '../../theme'; // Import custom theme
 
 const MovingQuoteForm = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        mobile: '',
+        relocationDate: '',
+        moveType: '',
+        moveSize: '',
+        relocationFrom: '',
+        relocationTo: '',
+        description: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        try {
+            // Save data to localStorage
+            localStorage.setItem('movingQuoteFormData', JSON.stringify(formData));
+            alert('Form data saved to localStorage successfully!');
+            // Clear form fields after submission
+            setFormData({
+                name: '',
+                email: '',
+                mobile: '',
+                relocationDate: '',
+                moveType: '',
+                moveSize: '',
+                relocationFrom: '',
+                relocationTo: '',
+                description: '',
+            });
+        } catch (error) {
+            console.error('Error saving data to localStorage:', error);
+            alert('An error occurred while saving data.');
+        }
+    };
+
     return (
-        <Grid container sx={{ 
+        <Grid container sx={{
             height: '100%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            }}>
-   
-
-            {/* Right Column - Form */}
+        }}>
             <Grid
                 item
                 xs={12}
@@ -33,7 +71,6 @@ const MovingQuoteForm = () => {
                     alignItems: 'center',
                     padding: { xs: '20px', md: '20px' },
                     height: '100vh',
-             
                 }}
             >
                 <Box
@@ -43,7 +80,7 @@ const MovingQuoteForm = () => {
                         backgroundColor: '#546f87',
                         borderRadius: 2,
                         p: 4,
-                        boxShadow: '0 2px 10px #565758;',
+                        boxShadow: '0 2px 10px #565758',
                     }}
                 >
                     <Typography
@@ -61,37 +98,30 @@ const MovingQuoteForm = () => {
                     {/* Form Fields */}
                     <Box
                         component="form"
+                        onSubmit={handleSubmit}
                         sx={{
                             display: 'grid',
                             gap: 2,
                         }}
                     >
-                        {/* Name and Email in the same row on larger screens */}
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={6}>
                                 <TextField
                                     label="Name"
+                                    name="name"
                                     variant="outlined"
                                     placeholder="Enter your name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     fullWidth
+                                    InputLabelProps={{
+                                        style: { fontSize: '16px', color: '#000' },
+                                    }}
                                     InputProps={{
                                         style: {
                                             backgroundColor: '#ffffff',
-                                            height: '50px', // Set height to 50px
-                                            border: 'none', // Remove border
-                                            fontSize: '12px', // Smaller font size
-                                        },
-                                    }}
-                                    InputLabelProps={{
-                                        style: { 
-                                            color: theme.colors.textSecondary, 
-                                            fontSize: '12px' // Smaller label font size
-                                        },
-                                    }}
-                                   
-                                    sx={{
-                                        '& .MuiInputBase-input': {
-                                            fontSize: '12px', // Set font size to small
+                                            height: '50px',
+                                            fontSize: '14px',
                                         },
                                     }}
                                 />
@@ -99,82 +129,62 @@ const MovingQuoteForm = () => {
                             <Grid item xs={12} md={6}>
                                 <TextField
                                     label="E-Mail"
+                                    name="email"
                                     variant="outlined"
                                     placeholder="Enter your email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     fullWidth
+                                    InputLabelProps={{
+                                        style: { fontSize: '16px', color: '#000' },
+                                    }}
                                     InputProps={{
                                         style: {
                                             backgroundColor: '#ffffff',
-                                            height: '50px', // Set height to 50px
-                                            border: 'none', // Remove border
-                                            fontSize: '12px', // Smaller font size
-                                        },
-                                    }}
-                                    InputLabelProps={{
-                                        style: { 
-                                            color: theme.colors.textSecondary, 
-                                            fontSize: '12px' // Smaller label font size
-                                        },
-                                    }}
-                                    sx={{
-                                        '& .MuiInputBase-input': {
-                                            fontSize: '12px', // Set font size to small
+                                            height: '50px',
+                                            fontSize: '14px',
                                         },
                                     }}
                                 />
                             </Grid>
                         </Grid>
 
-                        {/* Mobile No */}
                         <TextField
                             label="Mobile No"
+                            name="mobile"
                             variant="outlined"
                             placeholder="Enter your mobile number"
+                            value={formData.mobile}
+                            onChange={handleChange}
                             fullWidth
+                            InputLabelProps={{
+                                style: { fontSize: '16px', color: '#000' },
+                            }}
                             InputProps={{
                                 style: {
                                     backgroundColor: '#ffffff',
-                                    height: '50px', // Set height to 50px
-                                    border: 'none', // Remove border
-                                    fontSize: '12px', // Smaller font size
-                                },
-                            }}
-                            InputLabelProps={{
-                                style: { 
-                                    color: theme.colors.textSecondary, 
-                                    fontSize: '12px' // Smaller label font size
-                                },
-                            }}
-                            sx={{
-                                '& .MuiInputBase-input': {
-                                    fontSize: '12px', // Set font size to small
+                                    height: '50px',
+                                    fontSize: '14px',
                                 },
                             }}
                         />
 
-                        {/* Date of Relocation */}
                         <TextField
                             label="Date of Relocation"
+                            name="relocationDate"
                             type="date"
+                            value={formData.relocationDate}
+                            onChange={handleChange}
                             fullWidth
+                            InputLabelProps={{
+                                shrink: true,
+                                style: { fontSize: '16px', color: '#000' },
+                            }}
                             InputProps={{
                                 style: {
                                     backgroundColor: '#ffffff',
-                                    height: '50px', // Set height to 50px
-                                    border: 'none', // Remove border
-                                    fontSize: '12px', // Smaller font size
-                                },
-                            }}
-                            InputLabelProps={{
-                                style: { 
-                                    color: theme.colors.textSecondary, 
-                                    fontSize: '12px' // Smaller label font size
-                                },
-                                
-                            }}
-                            sx={{
-                                '& .MuiInputBase-input': {
-                                    fontSize: '12px', // Set font size to small
+                                    height: '50px',
+                                    fontSize: '14px',
                                 },
                             }}
                         />
@@ -183,17 +193,14 @@ const MovingQuoteForm = () => {
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={6}>
                                 <FormControl fullWidth>
-                                    <InputLabel sx={{ color: theme.colors.textSecondary, fontSize: '12px' }}>
+                                    <InputLabel sx={{ fontSize: '16px', color: '#000' }}>
                                         Move Type
                                     </InputLabel>
                                     <Select
-                                        variant="outlined"
-                                        sx={{
-                                            backgroundColor: '#ffffff',
-                                            height: '50px', // Set height to 50px
-                                            border: 'none', // Remove border
-                                            fontSize: '12px', // Smaller font size
-                                        }}
+                                        name="moveType"
+                                        value={formData.moveType}
+                                        onChange={handleChange}
+                                        sx={{ backgroundColor: '#ffffff', height: '50px', fontSize: '14px' }}
                                     >
                                         <MenuItem value="house">House</MenuItem>
                                         <MenuItem value="office">Office</MenuItem>
@@ -202,17 +209,14 @@ const MovingQuoteForm = () => {
                             </Grid>
                             <Grid item xs={12} md={6}>
                                 <FormControl fullWidth>
-                                    <InputLabel sx={{ color: theme.colors.textSecondary, fontSize: '12px' }}>
+                                    <InputLabel sx={{ fontSize: '16px', color: '#000' }}>
                                         Move Size
                                     </InputLabel>
                                     <Select
-                                        variant="outlined"
-                                        sx={{
-                                            backgroundColor: '#ffffff',
-                                            height: '50px', // Set height to 50px
-                                            border: 'none', // Remove border
-                                            fontSize: '12px', // Smaller font size
-                                        }}
+                                        name="moveSize"
+                                        value={formData.moveSize}
+                                        onChange={handleChange}
+                                        sx={{ backgroundColor: '#ffffff', height: '50px', fontSize: '14px' }}
                                     >
                                         <MenuItem value="small">Small</MenuItem>
                                         <MenuItem value="medium">Medium</MenuItem>
@@ -222,96 +226,70 @@ const MovingQuoteForm = () => {
                             </Grid>
                         </Grid>
 
-                        {/* Relocation From and To */}
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} md={6}>
-                                <TextField
-                                    label="Relocation From"
-                                    variant="outlined"
-                                    placeholder="Enter location"
-                                    fullWidth
-                                    InputProps={{
-                                        style: {
-                                            backgroundColor: '#ffffff',
-                                            height: '50px', // Set height to 50px
-                                            border: 'none', // Remove border
-                                            fontSize: '12px', // Smaller font size
-                                        },
-                                    }}
-                                    InputLabelProps={{
-                                        style: { 
-                                            color: theme.colors.textSecondary, 
-                                            fontSize: '12px' // Smaller label font size
-                                        },
-                                    }}
-                                    sx={{
-                                        '& .MuiInputBase-input': {
-                                            fontSize: '12px', // Set font size to small
-                                        },
-                                    }}
-                                />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <TextField
-                                    label="Relocation To"
-                                    variant="outlined"
-                                    placeholder="Enter destination"
-                                    fullWidth
-                                    InputProps={{
-                                        style: {
-                                            backgroundColor: '#ffffff',
-                                            height: '50px', // Set height to 50px
-                                            border: 'none', // Remove border
-                                            fontSize: '12px', // Smaller font size
-                                        },
-                                    }}
-                                    InputLabelProps={{
-                                        style: { 
-                                            color: theme.colors.textSecondary, 
-                                            fontSize: '12px' // Smaller label font size
-                                        },
-                                    }}
-                                    sx={{
-                                        '& .MuiInputBase-input': {
-                                            fontSize: '12px', // Set font size to small
-                                        },
-                                    }}
-                                />
-                            </Grid>
-                        </Grid>
-
-                        {/* Description */}
                         <TextField
-                            label="Please mention all items you would like to move"
+                            label="Relocation From"
+                            name="relocationFrom"
                             variant="outlined"
-                            placeholder="Enter description"
-                            multiline
-                            rows={1} // Minimized height by reducing rows
+                            placeholder="Enter location"
+                            value={formData.relocationFrom}
+                            onChange={handleChange}
                             fullWidth
+                            InputLabelProps={{
+                                style: { fontSize: '16px', color: '#000' },
+                            }}
                             InputProps={{
                                 style: {
                                     backgroundColor: '#ffffff',
-                                    height: '50px', // Set height to 50px
-                                    border: 'none', // Remove border
-                                    fontSize: '12px', // Smaller font size
-                                },
-                            }}
-                            InputLabelProps={{
-                                style: { 
-                                    color: theme.colors.textSecondary, 
-                                    fontSize: '12px' // Smaller label font size
-                                },
-                            }}
-                            sx={{
-                                '& .MuiInputBase-input': {
-                                    fontSize: '12px', // Set font size to small
-                                    color: 'grey', // Set placeholder color to grey
+                                    height: '50px',
+                                    fontSize: '14px',
                                 },
                             }}
                         />
 
-                        {/* Submit Button */}
+                        <TextField
+                            label="Relocation To"
+                            name="relocationTo"
+                            variant="outlined"
+                            placeholder="Enter destination"
+                            value={formData.relocationTo}
+                            onChange={handleChange}
+                            fullWidth
+                            InputLabelProps={{
+                                style: { fontSize: '16px', color: '#000' },
+                            }}
+                            InputProps={{
+                                style: {
+                                    backgroundColor: '#ffffff',
+                                    height: '50px',
+                                    fontSize: '14px',
+                                },
+                            }}
+                        />
+
+                        <TextField
+                            label="Please mention all items you would like to move"
+                            name="description"
+                            variant="outlined"
+                            placeholder="Enter description"
+                            multiline
+                            rows={1}
+                            value={formData.description}
+                            onChange={handleChange}
+                            fullWidth
+                            InputLabelProps={{
+                                style: { fontSize: '16px', color: '#000' },
+                            }}
+                            InputProps={{
+                                style: {
+                                    backgroundColor: '#ffffff',
+                                    height: '50px',
+                                    fontSize: '14px',
+                                },
+                            }}
+                        />
+
                         <Button
+                            type="submit"
                             variant="contained"
                             fullWidth
                             sx={{
@@ -320,9 +298,7 @@ const MovingQuoteForm = () => {
                                 fontWeight: 'bold',
                                 padding: '12px',
                                 borderRadius: 2,
-                                '&:hover': {
-                                    backgroundColor: '#008cc6',
-                                },
+                                '&:hover': { backgroundColor: '#008cc6' },
                             }}
                         >
                             Submit

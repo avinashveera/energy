@@ -197,9 +197,10 @@ const TopAppBar = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <ChatIcon />
+        <ChatIcon  sx={{fontSize:"30px"}} />
       </Fab>
       <Fab
+       color="primary"
         sx={{
           position: "fixed",
           bottom: 120,
@@ -210,7 +211,7 @@ const TopAppBar = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <WhatsAppIcon />
+        <WhatsAppIcon sx={{fontSize:"30px"}} />
       </Fab>
     </>
   );

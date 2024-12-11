@@ -9,21 +9,20 @@ import logo from '../img/logo.png'
 const menuLinks = [
   { label: 'Home', url: '/' },
   { label: 'About Us', url: '/about' },
-  { label: 'Services', url: '/services' },
-  { label: 'Blog', url: '/blog' },
-  { label: 'Contact', url: '/contact' },
+  { label: 'Services', url: '/service' },
+
 ];
 
 const servicesLinks = [
-  { label: 'Packing Services', url: '/services/packing' },
-  { label: 'Moving Services', url: '/services/moving' },
-  { label: 'Storage Services', url: '/services/storage' },
+  { label: 'Packing Services', url: '/service' },
+  { label: 'Moving Services', url: '/service' },
+  { label: 'Storage Services', url: '/service' },
 ];
 
 const Footer = () => {
  
   return (
-    <Box sx={{ backgroundColor: theme.colors.secondary, color: theme.colors.background, padding: 4 }}>
+    <Box sx={{ backgroundColor: theme.colors.secondary, color: theme.colors.background, padding: 4}}>
       <Grid container spacing={4}>
         {/* First Section - Company Info */}
         <Grid item xs={12} sm={6} md={3}>
@@ -38,13 +37,13 @@ const Footer = () => {
                 </IconButton>
                 <Typography variant="body2" sx={{ ml: 1 }}>9470679846</Typography>
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+              {/* <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
                 <IconButton color="inherit" onClick={() => window.location.href = 'mailto:info@maageeta.com'}>
                   <Email />
                 </IconButton>
                 <Typography variant="body2" sx={{ ml: 1 }}>info@maageeta.com</Typography>
-              </Box>
-              <Box sx={{ display: 'flex', justifyContent: 'flex-start', mt: 2 }}>
+              </Box> */}
+              {/* <Box sx={{ display: 'flex', justifyContent: 'flex-start', mt: 2 }}>
                 <IconButton color="inherit" onClick={() => window.open('https://facebook.com', '_blank')}>
                   <Facebook />
                 </IconButton>
@@ -57,7 +56,7 @@ const Footer = () => {
                 <IconButton color="inherit" onClick={() => window.open('https://linkedin.com', '_blank')}>
                   <LinkedIn />
                 </IconButton>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </Grid>
