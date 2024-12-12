@@ -7,6 +7,7 @@ import car from '../../img/car.jpeg'
 import bike from '../../img/bike.jpeg'
 import storage from '../../img/storage.jpeg'
 import international from '../../img/international.jpeg'
+import packmoveimg from '../../img/loading.jpeg'
 
 
 const ServicesPage = () => {
@@ -47,6 +48,18 @@ const ServicesPage = () => {
       description:
         "International moving companies will relocate your goods or vehicles safely fulfilling all cargo formalities.",
     },
+    {
+      imgUrl: packmoveimg,
+      title: "Packing and Moving",
+      description: "Efficient and secure packing and moving services to ensure the safe transport of your belongings."
+    },
+    {
+      imgUrl: office,
+      title: "Loading and Unloading",
+      description: "Professional loading and unloading services to handle your goods with care and precision."
+    }
+    
+    
   ];
 
   return (

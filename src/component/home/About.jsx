@@ -11,7 +11,7 @@ const HeroSection = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
+        height: "100%",
       }}
     >
       <Grid
@@ -42,7 +42,7 @@ const HeroSection = () => {
             <Typography
               variant="body1"
               sx={{
-                fontSize: { xs: "14px", sm: "16px", md: "18px" },
+                fontSize: { xs: "14px", sm: "16px", md: "16px" },
                 lineHeight: "1.6",
                 color: "#555",
               }}

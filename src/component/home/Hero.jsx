@@ -60,6 +60,7 @@ const MovingQuoteForm = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            backgroundColor:"f5f5f5"
         }}>
             <Grid
                 item
@@ -77,7 +78,7 @@ const MovingQuoteForm = () => {
                     sx={{
                         width: '100%',
                         maxWidth: 500,
-                        backgroundColor: '#546f87',
+                        backgroundColor: '#ffffff',
                         borderRadius: 2,
                         p: 4,
                         boxShadow: '0 2px 10px #565758',
@@ -119,7 +120,7 @@ const MovingQuoteForm = () => {
                                     }}
                                     InputProps={{
                                         style: {
-                                            backgroundColor: '#ffffff',
+                                            backgroundColor: '#f2f7fc',
                                             height: '50px',
                                             fontSize: '14px',
                                         },
@@ -140,7 +141,7 @@ const MovingQuoteForm = () => {
                                     }}
                                     InputProps={{
                                         style: {
-                                            backgroundColor: '#ffffff',
+                                            backgroundColor: '#f2f7fc',
                                             height: '50px',
                                             fontSize: '14px',
                                         },
@@ -162,7 +163,7 @@ const MovingQuoteForm = () => {
                             }}
                             InputProps={{
                                 style: {
-                                    backgroundColor: '#ffffff',
+                                    backgroundColor: '#f2f7fc',
                                     height: '50px',
                                     fontSize: '14px',
                                 },
@@ -182,7 +183,7 @@ const MovingQuoteForm = () => {
                             }}
                             InputProps={{
                                 style: {
-                                    backgroundColor: '#ffffff',
+                                    backgroundColor: '#f2f7fc',
                                     height: '50px',
                                     fontSize: '14px',
                                 },
@@ -200,7 +201,7 @@ const MovingQuoteForm = () => {
                                         name="moveType"
                                         value={formData.moveType}
                                         onChange={handleChange}
-                                        sx={{ backgroundColor: '#ffffff', height: '50px', fontSize: '14px' }}
+                                        sx={{ backgroundColor: '#f2f7fc', height: '50px', fontSize: '14px' }}
                                     >
                                         <MenuItem value="house">House</MenuItem>
                                         <MenuItem value="office">Office</MenuItem>
@@ -216,7 +217,7 @@ const MovingQuoteForm = () => {
                                         name="moveSize"
                                         value={formData.moveSize}
                                         onChange={handleChange}
-                                        sx={{ backgroundColor: '#ffffff', height: '50px', fontSize: '14px' }}
+                                        sx={{ backgroundColor: '#f2f7fc', height: '50px', fontSize: '14px' }}
                                     >
                                         <MenuItem value="small">Small</MenuItem>
                                         <MenuItem value="medium">Medium</MenuItem>
@@ -239,7 +240,7 @@ const MovingQuoteForm = () => {
                             }}
                             InputProps={{
                                 style: {
-                                    backgroundColor: '#ffffff',
+                                    backgroundColor: '#f2f7fc',
                                     height: '50px',
                                     fontSize: '14px',
                                 },
@@ -259,7 +260,7 @@ const MovingQuoteForm = () => {
                             }}
                             InputProps={{
                                 style: {
-                                    backgroundColor: '#ffffff',
+                                    backgroundColor: '#f2f7fc',
                                     height: '50px',
                                     fontSize: '14px',
                                 },
@@ -281,7 +282,7 @@ const MovingQuoteForm = () => {
                             }}
                             InputProps={{
                                 style: {
-                                    backgroundColor: '#ffffff',
+                                    backgroundColor: '#f2f7fc',
                                     height: '50px',
                                     fontSize: '14px',
                                 },

@@ -10,6 +10,8 @@ const menuLinks = [
   { label: 'Home', url: '/' },
   { label: 'About Us', url: '/about' },
   { label: 'Services', url: '/service' },
+  { label: 'Gallery', url: '/gallery' },
+  { label: 'Contact Us', url: '/contact' },
 
 ];
 
@@ -29,20 +31,31 @@ const Footer = () => {
           <Box>
             <img src={logo} alt="Maa Geeta Packers & Movers" style={{ width: '150px', marginBottom: '16px' }} />
             <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Maa Geeta Packers & Movers</Typography>
+
+            <Box component="footer" sx={{ py: 2, backgroundColor: 'primary.main', color: 'white', textAlign: 'center' }}>
+        <Typography variant="body1">Service Hours - 24 Hours Available</Typography>
+      </Box>
+
             <Box sx={{ marginTop: 2 }}>
               <Typography variant="body2">Contact Us</Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
                 <IconButton color="inherit" onClick={() => window.location.href = 'tel:+919470679846'}>
                   <Phone />
                 </IconButton>
-                <Typography variant="body2" sx={{ ml: 1 }}>9470679846</Typography>
+                <Typography variant="body2" sx={{ ml: 1,fontFamily:'-moz-initial' }}>9470679846</Typography>
               </Box>
-              {/* <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-                <IconButton color="inherit" onClick={() => window.location.href = 'mailto:info@maageeta.com'}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                <IconButton color="inherit" onClick={() => window.location.href = 'tel:+919123129847'}>
+                  <Phone />
+                </IconButton>
+                <Typography variant="body2" sx={{ ml: 1,fontFamily:'-moz-initial' }}>9123129847</Typography>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                <IconButton color="inherit" onClick={() => window.location.href = 'maageetapackerandmovers@gmail.com'}>
                   <Email />
                 </IconButton>
-                <Typography variant="body2" sx={{ ml: 1 }}>info@maageeta.com</Typography>
-              </Box> */}
+                <Typography variant="body2" sx={{ ml: 1 }}>maageetapackerandmovers@gmail.com</Typography>
+              </Box>
               {/* <Box sx={{ display: 'flex', justifyContent: 'flex-start', mt: 2 }}>
                 <IconButton color="inherit" onClick={() => window.open('https://facebook.com', '_blank')}>
                   <Facebook />
@@ -104,7 +117,7 @@ const Footer = () => {
             </Typography>
             <Box sx={{ height: 200, width: '100%', position: 'relative' }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.6403834876236!2d-74.00601508497335!3d40.712776279331574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQwJzUyLjAiTiA3NMKwMDYnMjAuNSJLA!5e0!3m2!1sen!2sus!4v1676981362977!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1750.054863618164!2d85.11997351306545!3d25.58545286198456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed59cf3d272b55%3A0x17d0be51d4a618b1!2sSaristabad%20purvi%20tola!5e0!3m2!1sen!2sin!4v1733974136666!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

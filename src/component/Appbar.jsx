@@ -1,217 +1,165 @@
-import React, { useState } from "react";
+// src/components/TopAppBar.js
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
-  IconButton,
+  Typography,
   Box,
   Button,
+  IconButton,
   Drawer,
   List,
   ListItem,
   ListItemText,
-
-  MenuItem,
-  Menu,
   useMediaQuery,
-  Fab,
-} from "@mui/material";
-import {
-  Menu as MenuIcon,
-  ArrowDropDown as ArrowDropDownIcon,
-  Chat as ChatIcon,
-  WhatsApp as WhatsAppIcon,
-} from "@mui/icons-material";
-import logo from "../img/logo.png"; // Custom logo
-import { useNavigate } from "react-router-dom";
-import theme from "../theme";
+  Fab
+} from '@mui/material';
+import PhoneIcon from '@mui/icons-material/Phone';
+import { WhatsApp as WhatsAppIcon } from "@mui/icons-material";
+import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from 'react-router-dom';
+import logo from '../img/logo.png'; // Custom logo
+import theme from '../theme';
 
 const TopAppBar = () => {
-  const [open, setOpen] = useState(false); // Drawer state
-  const [servicesOpen, setServicesOpen] = useState(false); // Dropdown state
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const isMobile = useMediaQuery('(max-width:600px)');
   const navigate = useNavigate();
-  const isMobile = useMediaQuery("(max-width:600px)");
 
-  // Drawer toggle
-  const toggleDrawer = () => setOpen(!open);
+  // Handle call actions
+  const handleCall1 = () => {
+    window.location.href = 'tel:+919123129847';
+  };
+
+  const handleCall2 = () => {
+    window.location.href = 'tel:+919470679846';
+  };
 
   // Navigation
   const handleNavigation = (path) => {
     navigate(path);
-    setOpen(false); // Close drawer after navigation
+    setDrawerOpen(false);
   };
 
-  // Dropdown toggle
-  const handleServicesToggle = () => {
-    setServicesOpen(!servicesOpen);
+  const handleGetQuote = () => {
+    navigate('/getquote');
   };
 
-  // Menu items
   const menuItems = [
-    { text: "Home", path: "/" },
-    { text: "About", path: "/about" },
-    { text: "Service", path: "/service" },
-  ];
-
-  // Services dropdown items
-  const services = [
-    { text: "Home Relocation", path: "/services/home-relocation" },
-    { text: "Office Relocation", path: "/services/office-relocation" },
-    { text: "Car Transport", path: "/services/car-transport" },
-    { text: "Bike Transport", path: "/services/bike-transport" },
-    { text: "Storage Services", path: "/services/storage" },
-    { text: "International Relocation", path: "/services/international" },
+    { text: 'Home', path: '/' },
+    { text: 'About', path: '/about' },
+    { text: 'Service', path: '/service' },
+    { text: 'Gallery', path: '/gallery' },
+    { text: 'Contact Us', path: '/contact' },
   ];
 
   return (
     <>
-      {/* AppBar */}
-      <AppBar position="sticky" sx={{ backgroundColor: "#fff" }}>
-        <Toolbar>
-          {/* Logo */}
-          <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
-            <img src={logo} alt="Logo" style={{ height: "60px" }} />
+      <AppBar position="sticky" sx={{ backgroundColor: '#fff' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          {/* Left Section: Logo and Menu */}
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <img src={logo} alt="Logo" style={{ height: '50px', marginRight: '16px' }} />
+            {!isMobile && (
+              <Box sx={{ display: 'flex' }}>
+                {menuItems.map((item) => (
+                  <Button
+                    key={item.text}
+                    onClick={() => handleNavigation(item.path)}
+                    sx={{ color: theme.colors.secondary, marginLeft: 2 }}
+                  >
+                    {item.text}
+                  </Button>
+                ))}
+              </Box>
+            )}
           </Box>
 
-          {/* Menu for desktop */}
+          {/* Right Section: Call and Quote Buttons */}
           {!isMobile && (
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              {menuItems.map((item) => (
-                <Button
-                  key={item.text}
-                  sx={{ color: theme.colors.secondary, marginLeft: 2 }}
-                  onClick={() => handleNavigation(item.path)}
-                >
-                  {item.text}
-                </Button>
-              ))}
-
-              {/* Services dropdown */}
-              {/* <Button
-                sx={{
-                  color: theme.colors.secondary,
-                  marginLeft: 2,
-                  display: "flex",
-                  alignItems: "center",
-                }}
-                onClick={handleServicesToggle}
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box onClick={handleCall1} sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', mr: 2 }}>
+                <PhoneIcon sx={{ color: theme.colors.primary, mr: 1 }} />
+                <Typography variant="body2" sx={{ color: theme.colors.secondary,fontFamily:'-moz-initial' }}>
+                  9123129847
+                </Typography>
+              </Box>
+              <Box onClick={handleCall2} sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', mr: 2 }}>
+                <PhoneIcon sx={{ color: theme.colors.primary, mr: 1 }} />
+                <Typography variant="body2" sx={{ color: theme.colors.secondary,fontFamily:'-moz-initial' }}>
+                9470679846
+                </Typography>
+              </Box>
+              <Button
+                variant="contained"
+                onClick={handleGetQuote}
+                sx={{ backgroundColor: theme.colors.secondary, color: theme.colors.background, textTransform: 'uppercase' }}
               >
-                Services
-                <ArrowDropDownIcon />
-              </Button> */}
-              {/* <Menu
-                open={servicesOpen}
-                onClose={() => setServicesOpen(false)}
-                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              >
-                {services.map((service) => (
-                  <MenuItem
-                    key={service.text}
-                    onClick={() => handleNavigation(service.path)}
-                  >
-                    {service.text}
-                  </MenuItem>
-                ))}
-              </Menu> */}
+                Get Moving Quote
+              </Button>
             </Box>
           )}
 
-          {/* Mobile menu icon */}
+          {/* Mobile Menu Icon */}
           {isMobile && (
-            <IconButton
-              sx={{ color: theme.colors.secondary }}
-              onClick={toggleDrawer}
-            >
-              <MenuIcon />
+            <IconButton onClick={() => setDrawerOpen(true)}>
+              <MenuIcon sx={{ color: theme.colors.secondary }} />
             </IconButton>
           )}
         </Toolbar>
       </AppBar>
 
-      {/* Drawer for mobile */}
+      {/* Drawer for Mobile */}
       <Drawer
         anchor="left"
-        open={open}
-        onClose={toggleDrawer}
-        sx={{
-          width: 250,
-          "& .MuiDrawer-paper": {
-            width: 250,
-            backgroundColor: theme.colors.background,
-            boxShadow: "2px 0px 10px rgba(0, 0, 0, 0.1)",
-            display: "flex",
-            flexDirection: "column",
-          },
-        }}
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        sx={{ '& .MuiDrawer-paper': { width: 250 } }}
       >
-        {/* Logo in drawer */}
-        <Box sx={{ padding: "20px", textAlign: "center" }}>
-          <img src={logo} alt="Logo" style={{ height: "60px" }} />
+        <Box sx={{ padding: '16px', textAlign: 'center' }}>
+          <img src={logo} alt="Logo" style={{ height: '50px' }} />
         </Box>
-
-        {/* Menu items */}
         <List>
           {menuItems.map((item) => (
             <ListItem button key={item.text} onClick={() => handleNavigation(item.path)}>
               <ListItemText primary={item.text} />
             </ListItem>
           ))}
-
-          {/* Divider */}
-          {/* <Divider sx={{ margin: "10px 0" }} /> */}
-
-          {/* // Divider,
-          // Collapse, */}
-          {/* Services dropdown in drawer */}
-          {/* 
-          <ListItem button onClick={handleServicesToggle}>
-            <ListItemText primary="Services" />
-            <ArrowDropDownIcon />
+          <ListItem button onClick={handleCall1}>
+            <PhoneIcon sx={{ color: theme.colors.primary, mr: 1 }} />
+            <ListItemText  primary="9123129847" />
           </ListItem>
-          <Collapse in={servicesOpen} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {services.map((service) => (
-                <ListItem
-                  button
-                  key={service.text}
-                  sx={{ paddingLeft: "30px" }}
-                  onClick={() => handleNavigation(service.path)}
-                >
-                  <ListItemText primary={service.text} />
-                </ListItem>
-              ))}
-            </List>
-          </Collapse> */}
+          <ListItem sx={{fontFamily:'-moz-initial'}} button onClick={handleCall2}>
+            <PhoneIcon sx={{ color: theme.colors.primary, mr: 1 }} />
+            <ListItemText  primary="9470679846" />
+          </ListItem>
+          <ListItem button onClick={handleGetQuote}>
+            <Button
+              variant="contained"
+              sx={{ backgroundColor: theme.colors.secondary, color: theme.colors.background, width: '100%' }}
+            >
+              Get Moving Quote
+            </Button>
+          </ListItem>
         </List>
       </Drawer>
 
-      {/* Floating action buttons */}
-      <Fab
-        color="primary"
-        sx={{
-          position: "fixed",
-          bottom: 60,
-          right: 16,
-          bgcolor: "#00a2e7",
-        }}
-        href="https://t.me/jobscraping"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <ChatIcon  sx={{fontSize:"30px"}} />
-      </Fab>
-      <Fab
+
+       {/* Floating action buttons */}
+      
+       <Fab
        color="primary"
         sx={{
           position: "fixed",
-          bottom: 120,
+          bottom: 80,
           right: 16,
           bgcolor: "#25D366",
         }}
-        href="https://whatsapp.com/channel/0029VaxAC8LDp2QHBv5MD53T"
+        href="https://wa.me/9123129847"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <WhatsAppIcon sx={{fontSize:"30px"}} />
+        <WhatsAppIcon sx={{fontSize:"40px"}} />
       </Fab>
     </>
   );
